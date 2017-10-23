@@ -118,7 +118,7 @@ sudo chmod 777 virtualbox-5.2_5.2.0-118431~Ubuntu~zesty_amd64.deb
 
 echo "${scriptuser} is now installing MORE great software"
 sudo apt-get install ffmpeg -y
-sudo apt-get install inkscape git gimp p7zip-full livestreamer deluge chromium-browser mumble krita obs-studio gnome-tweak-tool ibus-sunpinyin ibus-pinyin steam -y
+sudo apt-get install inkscape git gimp p7zip-full livestreamer geany deluge chromium-browser mumble krita obs-studio gnome-tweak-tool ibus-sunpinyin ibus-pinyin steam -y
 sudo snap install atom --classic 
 ibus restart
 # The above also installed some Chinese language specific files called IBUS-pinyin, IBUS-sunpinyin, and then it told IBUS to restart.
