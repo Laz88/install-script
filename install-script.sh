@@ -139,9 +139,11 @@ wget "https://raw.githubusercontent.com/Laz88/install-script/master/mbuntu-0.jpg
 wget "https://raw.githubusercontent.com/Laz88/install-script/master/00img102.jpg"
 gsettings set org.gnome.desktop.background picture-uri "/home/${scriptuser}/Pictures/mbuntu-0.jpg"
 
-echo "${scriptuser} is now done!"
-echo "${scriptuser} is now done!"
-echo "${scriptuser} is now done!"
-echo "${scriptuser} is now done!"
-echo "${scriptuser} is now done!"
+echo "${scriptuser} is now done! Install some extensions for GNOME (the system UI) now..."
 
+chomium-browser https://extensions.gnome.org/extension/19/user-themes/ https://extensions.gnome.org/extension/906/sound-output-device-chooser/ https://extensions.gnome.org/extension/549/web-search-dialog/
+
+cd /home/${scriptuser}/
+wget "https://dl.opendesktop.org/api/files/download/id/1498225522/ocs-url_3.0.2-0ubuntu1_amd64.deb"
+sudo apt install libqt5svg5 qml-module-qtquick-controls
+sudo dpkg -i /home/${scriptuser}/ocs-url*.deb
