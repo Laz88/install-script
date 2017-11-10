@@ -132,11 +132,11 @@ sudo apt-get autoclean
 # One wallpaper is from MAC OS and is applied to the system
 # The second wallpaper is from the Windows 10 Lockscreen, you should manually apply that to your lockscreen if you want to feel similar to Windows.
 # The pictures are saved to /home/username/Pictures/
-# echo "${scriptuser} is now getting a great wallpaper."
-# cd /home/"${scriptuser}"/Pictures/
-# wget "http://adomi.global/web/image/1086/mbuntu-0.jpg"
-# wget "http://adomi.global/web/image/1084/00img102.jpg"
-# gsettings set org.gnome.desktop.background picture-uri "/home/${scriptuser}/Pictures/mbuntu-0.jpg"
+echo "${scriptuser} is now getting a great wallpaper."
+cd /home/"${scriptuser}"/Pictures/
+wget "https://raw.githubusercontent.com/Laz88/install-script/master/mbuntu-0.jpg"
+wget "https://raw.githubusercontent.com/Laz88/install-script/master/00img102.jpg"
+gsettings set org.gnome.desktop.background picture-uri "/home/${scriptuser}/Pictures/mbuntu-0.jpg"
 
 echo "${scriptuser} is now done!"
 echo "${scriptuser} is now done!"
