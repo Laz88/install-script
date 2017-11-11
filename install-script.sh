@@ -19,6 +19,9 @@
 
 # This is how you set a variable in "BASH"
 scriptuser="$(whoami)"
+# FYI -- you don't actually need to set this variable...
+# This variable already exists as $USER
+# We're going to use this variable anyways, for demonstration purposes
 
 # This makes the script say things in the terminal.
 echo "${scriptuser} is installing some great software."
@@ -48,8 +51,12 @@ pip install twodict
 # These below commands are mostly useless, because we're creating a folder that we later delete, no worries.
 # I leave these here so that you can see the variable being used again as we create a folder (make-directory) and change directory (navigate to it)
 cd /home/"${scriptuser}"/Downloads/
-mkdir ydlg
-cd /home/"${scriptuser}"/Downloads/ydlg/
+mkdir app-downloads
+cd /home/"${scriptuser}"/Downloads/app-downloads/
+
+# Incase you need skype, we'll install it. 
+wget https://go.skype.com/skypeforlinux-64.deb
+sudo dpkg -i skypeforlinux-64.deb
 
 # This is how you download things that were zipped as a ".tar.gz" extension, then we unzip them, then we navigate to the folder, then we install it
 wget "https://pypi.python.org/packages/55/28/70620c1ffb8ad7ecb81913a053dc454ad7116d3fbdbd8ca23ac0b19ebb40/Youtube-DLG-0.4.tar.gz"
@@ -58,48 +65,31 @@ cd Youtube-DLG-0.4
 sudo python setup.py install
 cd ..
 
-# Now we're creating launchable icons for the software we just installed
-touch youtube-dl-gui.desktop
-echo "[Desktop Entry]" >> youtube-dl-gui.desktop
-echo "Name=Youtube-DL-GUI" >> youtube-dl-gui.desktop
-echo "Exec=youtube-dl-gui" >> youtube-dl-gui.desktop
-echo "Terminal=false" >> youtube-dl-gui.desktop
-echo "Type=Application" >> youtube-dl-gui.desktop
-echo "Icon=transmission" >> youtube-dl-gui.desktop
-echo "Categories=GTK;GNOME;Utility;" >> youtube-dl-gui.desktop
+# Now we're creating launchable icons
+sudo cat > /usr/share/applications/youtube-dl-gui.desktop << EOL
+[Desktop Entry]
+Name=Youtube-DL-GUI
+Exec=youtube-dl-gui
+Terminal=false
+Type=Application
+Icon=transmission
+Categories=GTK;GNOME;Utility;
+EOL
 
-# Ok, we made a launchable icon, now we have to move the icon's location to /usr/share/applicactions/
-# This command essentially takes our icon and registers it with the operating system (ubuntu in this case)
-# Now that the icon is registered, we can find the application in the "All applications" menu when we search
-sudo mv youtube-dl-gui.desktop /usr/share/applications/youtube-dl-gui.desktop
+sudo cat > /usr/share/applications/web-wechat.desktop << EOL
+[Desktop Entry]
+Name=WeChat
+Exec=chromium-browser https://web.wechat.com/
+Terminal=false
+Type=Application
+Icon=/usr/share/ibus-table/icons/chinese.svg
+Categories=GTK;GNOME;Utility;
+EOL
 
-# This command is experimental, our python based youtube-dl-gui program is a bit buggy and running this command possibly fixes the bug
-sudo chmod 777 /usr/share/applications/youtube-dl-gui.desktop
-
-# Hey, we use web.wechat.com and web.skype.com occassionally, lets make some launchable icons for wechat and skype!
-touch web-wechat.desktop
-echo "[Desktop Entry]" >> web-wechat.desktop
-echo "Name=WeChat" >> web-wechat.desktop
-echo "Exec=chromium-browser https://web.wechat.com/" >> web-wechat.desktop
-echo "Terminal=false" >> web-wechat.desktop
-echo "Type=Application" >> web-wechat.desktop
-echo "Icon=/usr/share/ibus-table/icons/chinese.svg" >> web-wechat.desktop
-echo "Categories=GTK;GNOME;Utility;" >> web-wechat.desktop
-sudo mv web-wechat.desktop /usr/share/applications/web-wechat.desktop
-
-touch web-skype.desktop
-echo "[Desktop Entry]" >> web-skype.desktop
-echo "Name=Skype" >> web-skype.desktop
-echo "Exec=chromium-browser https://web.skype.com/" >> web-skype.desktop
-echo "Terminal=false" >> web-skype.desktop
-echo "Type=Application" >> web-skype.desktop
-echo "Icon=org.gnome.Cheese" >> web-skype.desktop
-echo "Categories=GTK;GNOME;Utility;" >> web-skype.desktop
-sudo mv web-skype.desktop /usr/share/applications/web-skype.desktop
-
-# Previously we ran the command "mkdir ydlg" and extracted files to it. Lets delete that folder and any files. 
+# Previously we ran the command "mkdir app-downloads" and downloaded files to it. Lets delete the folder and files. 
 cd ..
-sudo rm -R ydlg
+sudo rm -R app-downloads
+
 
 # Downloading virtual box to your downloads folder, should you need it in the future
 cd /home/"${scriptuser}"/Downloads/
