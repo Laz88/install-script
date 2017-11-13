@@ -184,3 +184,9 @@ else
 	echo "$USER did not specify restore."
 fi
 EOL
+
+cd /home/"${scriptuser}"/scripts/
+sudo chmod 777 backup.sh
+sudo chmod +x backup.sh
+sudo chmod 777 144hz-displayport-2.sh
+sudo chmod +x 144hz-displayport-2.sh
