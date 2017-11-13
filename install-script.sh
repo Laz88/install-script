@@ -162,6 +162,7 @@ echo "This assumes you have a mounted backup drive at /media/$USER/TB/"
 echo "This script can backup or restore files."
 echo "		Type backup to back files up."
 echo "		Type restore to restore files."
+read SITUATION
 if [ "$SITUATION" == backup ]; then
 	mkdir /media/$USER/TB/backup
 	cp -r /home/$USER/.config /media/$USER/TB/backup
