@@ -143,3 +143,44 @@ sudo apt install libqt5svg5 qml-module-qtquick-controls
 sudo dpkg -i /home/${scriptuser}/ocs-url*.deb
 
 chomium-browser https://extensions.gnome.org/extension/19/user-themes/ https://extensions.gnome.org/extension/906/sound-output-device-chooser/ https://extensions.gnome.org/extension/549/web-search-dialog/
+
+mkrdir /home/"${scriptuser}"/scripts
+sudo cat > /home/"${scriptuser}"/scripts/144hz-displayport-2.sh << EOL
+#!/bin/bash
+xrandr --output DisplayPort-2 --mode 1920x1080 --rate 144.00
+# This sets a variable for the mouse ID
+# idnum="$(xinput list | grep -m 1 'Mouse' | awk {'print $7'}| cut -d = -f 2)"
+# This uses the mouse ID variable to apply settings
+# xinput --set-prop "${idnum}" "Device Accel Velocity Scaling" 1
+# xinput --set-prop "${idnum}" "Device Accel Profile" $2
+# xinput --set-prop "${idnum}" "Device Accel Constant Deceleration" $1
+EOL
+
+sudo cat > /home/"${scriptuser}"/scripts/backup.sh << EOL
+#!/bin/bash
+echo "This assumes you have a mounted backup drive at /media/$USER/TB/"
+echo "This script can backup or restore files."
+echo "		Type backup to back files up."
+echo "		Type restore to restore files."
+if [ "$SITUATION" == backup ]; then
+	mkdir /media/$USER/TB/backup
+	cp -r /home/$USER/.config /media/$USER/TB/backup
+	cp -r /home/$USER/.thunderbird /media/$USER/TB/backup
+	cp -r /home/$USER/.mozilla /media/$USER/TB/backup
+	cp -r /home/$USER/.steam /media/$USER/TB/backup
+	cp -r /home/$USER/Documents /media/$USER/TB/backup
+	cp -r /home/$USER/Downloads /media/$USER/TB/backup
+else
+	echo "$USER did not specify backup."
+fi
+if [ "$SITUATION" == restore ]; then
+	cp -r /media/$USER/TB/backup/.config /home/$USER
+	cp -r /media/$USER/TB/backup/.thunderbird /home/$USER
+	cp -r /media/$USER/TB/backup.mozilla /home/$USER
+	cp -r /media/$USER/TB/backup/.steam /home/$USER
+	cp -r /media/$USER/TB/backup/Documents /home/$USER
+	cp -r /media/$USER/TB/backup/Downloads /home/$USER
+else
+	echo "$USER did not specify restore."
+fi
+EOL
