@@ -16,6 +16,12 @@
 
 # This is how you comment a line in bash
 #
+echo "If you are Andrew and have a backup located at /TB/backup, then type restore"
+echo "This script can backup or restore files."
+echo "		Type restore to restore files."
+echo "		Otherwise type ignore"
+read SITUATION
+
 
 # This is how you set a variable in "BASH"
 scriptuser="$(whoami)"
@@ -191,3 +197,14 @@ sudo chmod 777 backup.sh
 sudo chmod +x backup.sh
 sudo chmod 777 144hz-displayport-2.sh
 sudo chmod +x 144hz-displayport-2.sh
+
+if [ "$SITUATION" == restore ]; then
+	cp -r /media/$USER/TB/backup/.config /home/$USER
+	cp -r /media/$USER/TB/backup/.thunderbird /home/$USER
+	cp -r /media/$USER/TB/backup.mozilla /home/$USER
+	cp -r /media/$USER/TB/backup/.steam /home/$USER
+	cp -r /media/$USER/TB/backup/Documents /home/$USER
+	cp -r /media/$USER/TB/backup/Downloads /home/$USER
+else
+	echo "$USER did not specify restore."
+fi
