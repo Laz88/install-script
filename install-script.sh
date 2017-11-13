@@ -122,6 +122,11 @@ sudo apt-get autoclean
 # One wallpaper is from MAC OS and is applied to the system
 # The second wallpaper is from the Windows 10 Lockscreen, you should manually apply that to your lockscreen if you want to feel similar to Windows.
 # The pictures are saved to /home/username/Pictures/
+
+cd /home/"${scriptuser}"/.steam/
+wget "https://github.com/Laz88/install-script/raw/master/skins.zip"
+7zip x skins.zip
+
 echo "${scriptuser} is now getting a great wallpaper."
 cd /home/"${scriptuser}"/Pictures/
 wget "https://raw.githubusercontent.com/Laz88/install-script/master/mbuntu-0.jpg"
