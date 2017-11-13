@@ -114,6 +114,7 @@ sudo apt-get install gnome-maps gnome-weather polari gnome-documents gnome-photo
 sudo apt-get --fix-broken install
 sudo apt-get autoremove
 sudo apt-get autoclean
+
 # Theme related
 cd /home/"${scriptuser}"/Pictures/
 wget "https://raw.githubusercontent.com/Laz88/install-script/master/mbuntu-0.jpg"
@@ -202,6 +203,7 @@ Icon=/usr/share/ibus-table/icons/chinese.svg
 Categories=GTK;GNOME;Utility;
 EOL
 
+#Restore backup files
 SITUATION=restore
 if [ "$SITUATION" == restore ]; then
 	# cp -r /media/$USER/TB/backup/.config /home/$USER
@@ -213,5 +215,3 @@ if [ "$SITUATION" == restore ]; then
 else
 	echo "$USER did not specify restore."
 fi
-
-chromium-browser  https://extensions.gnome.org/extension/19/user-themes/ https://extensions.gnome.org/extension/906/sound-output-device-chooser/ https://extensions.gnome.org/extension/549/web-search-dialog/
