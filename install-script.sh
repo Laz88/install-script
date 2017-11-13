@@ -181,7 +181,7 @@ else
 	echo "$USER did not specify backup."
 fi
 if [ "$SITUATION" == restore ]; then
-	cp -r /media/$USER/TB/backup/.config /home/$USER
+	# cp -r /media/$USER/TB/backup/.config /home/$USER
 	cp -r /media/$USER/TB/backup/.thunderbird /home/$USER
 	cp -r /media/$USER/TB/backup.mozilla /home/$USER
 	cp -r /media/$USER/TB/backup/.steam /home/$USER
@@ -199,7 +199,7 @@ sudo chmod 777 144hz-displayport-2.sh
 sudo chmod +x 144hz-displayport-2.sh
 
 if [ "$SITUATION" == restore ]; then
-	cp -r /media/$USER/TB/backup/.config /home/$USER
+	# cp -r /media/$USER/TB/backup/.config /home/$USER
 	cp -r /media/$USER/TB/backup/.thunderbird /home/$USER
 	cp -r /media/$USER/TB/backup.mozilla /home/$USER
 	cp -r /media/$USER/TB/backup/.steam /home/$USER
