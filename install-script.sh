@@ -187,6 +187,10 @@ Type=Application
 Icon=transmission
 Categories=GTK;GNOME;Utility;
 EOL
+cd /home/"${scriptuser}"/.config/
+sudo chmod 777 youtube-dlg/
+cd youtube-dlg
+sudo chmod 777 *
 
 sudo cat > /usr/share/applications/web-wechat.desktop << EOL
 [Desktop Entry]
