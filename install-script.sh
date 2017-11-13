@@ -108,8 +108,7 @@ sudo chmod 777 virtualbox-5.2_5.2.0-118431~Ubuntu~zesty_amd64.deb
 
 echo "${scriptuser} is now installing MORE great software"
 sudo apt-get install ffmpeg -y
-sudo apt-get install inkscape git gimp p7zip-full livestreamer geany deluge chromium-browser mumble krita obs-studio gnome-tweak-tool ibus-sunpinyin ibus-pinyin steam -y
-sudo apt-get install chrome-gnome-shell -y
+sudo apt-get install inkscape git gimp p7zip-full livegnome-session gnome-maps gnome-weather polari gnome-documents gnome-photos gnome-musicstreamer geany deluge chromium-browser mumble krita obs-studio gnome-tweak-tool ibus-sunpinyin ibus-pinyin steam -y
 sudo snap install atom --classic 
 ibus restart
 # The above also installed some Chinese language specific files called IBUS-pinyin, IBUS-sunpinyin, and then it told IBUS to restart.
@@ -130,6 +129,8 @@ wget "https://raw.githubusercontent.com/Laz88/install-script/master/00img102.jpg
 gsettings set org.gnome.desktop.background picture-uri "/home/${scriptuser}/Pictures/mbuntu-0.jpg"
 
 echo "${scriptuser} is now done! Install some extensions for GNOME (the system UI) now..."
+sudo apt-get install chrome-gnome-shell gnome-session gnome-session gnome-maps gnome-weather polari gnome-documents gnome-photos gnome-music -y
+
 
 cd /home/${scriptuser}/
 wget "https://dl.opendesktop.org/api/files/download/id/1498225522/ocs-url_3.0.2-0ubuntu1_amd64.deb"
