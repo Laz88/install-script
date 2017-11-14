@@ -117,8 +117,8 @@ sudo apt-get autoclean
 
 # Theme related
 cd /home/"${scriptuser}"/Pictures/
-wget "https://raw.githubusercontent.com/Laz88/install-script/master/mbuntu-0.jpg"
-wget "https://raw.githubusercontent.com/Laz88/install-script/master/00img102.jpg"
+wget "https://raw.githubusercontent.com/Laz88/install-script/master/Wallpapers/mbuntu-0.jpg"
+wget "https://raw.githubusercontent.com/Laz88/install-script/master/Wallpapers/00img102.jpg"
 gsettings set org.gnome.desktop.background picture-uri "/home/${scriptuser}/Pictures/mbuntu-0.jpg"
 
 cd /home/${scriptuser}/Downloads
