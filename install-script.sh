@@ -19,17 +19,7 @@ elif [ "$YOUR_OS" == elementary ]; then
 	echo "Starting the script..."
 	# Install script pre-requisites
 	sudo apt update
-	sudo apt install software-properties-common firefox thunderbird nautilus gnome-system-monitor libreoffice -y -f	
-	sudo cat > /home/"$USER"/Downloads/systemmonitor.desktop << EOL
-	[Desktop Entry]
-	Name=System Monitor
-	Exec=gnome-system-monitor
-	Terminal=false
-	Type=Application
-	Icon=onboard
-	Categories=GTK;Utility;
-EOL
-	sudo mv /home/"$USER"/Downloads/systemmonitor.desktop /usr/share/applications/systemmonitor.desktop
+	sudo apt install software-properties-common firefox thunderbird gnome-system-monitor libreoffice -y -f	
 else
 	echo "[OS check] = Failed"
 	echo "Error -- this script is designed for Ubuntu and Elementary only."
