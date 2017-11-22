@@ -19,11 +19,11 @@ elif [ "$YOUR_OS" == elementary ]; then
 	echo "Starting the script..."
 	# Install script pre-requisites
 	sudo apt update
-	sudo apt install software-properties-common firefox thunderbird nautilus plasma-workspace -y -f	
+	sudo apt install software-properties-common firefox thunderbird nautilus gnome-system-monitor -y -f	
 	sudo cat > /home/"$USER"/Downloads/systemmonitor.desktop << EOL
 	[Desktop Entry]
 	Name=System Monitor
-	Exec=systemmonitor
+	Exec=gnome-system-monitor
 	Terminal=false
 	Type=Application
 	Icon=onboard
