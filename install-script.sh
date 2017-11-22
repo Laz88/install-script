@@ -5,13 +5,13 @@ if [ "$USER" == root ]; then
 	echo "Exiting..."
 	exit
 else
-    echo "[USER check] = $USER"
+	echo "[USER check] = $USER"
 fi
 
 YOUR_OS="$(cat /etc/issue | awk {'print $1'})"
 
 if [ "$YOUR_OS" == Ubuntu ]; then
-    echo "[OS Check] = Ubuntu"
+	echo "[OS Check] = Ubuntu"
 	echo "Starting the script..."
 else
 	echo "Error -- this script is designed for Ubuntu. You are not running Ubuntu."
