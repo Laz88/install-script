@@ -1,22 +1,26 @@
 #!/bin/bash
 
-# Youtube guide on running this script: https://www.youtube.com/watch?v=7BD8aptkbR4
-# Youtube guide on installing Chinese input: https://www.youtube.com/watch?v=QYSCKDBB8cg
+if [ "$USER" == root ]; then
+	echo "Error -- this script cannot be executed with sudo. Try ./ instead."
+	echo "Exiting..."
+	exit
+else
+    echo "[USER check] = $USER"
+fi
 
-# To run this script on Ubuntu 17.10, you need to do the following:
-# (0) put the script in a folder on your computer.
-# (1) open a terminal, navigate to the same folder as the script.
-# (2) run this command in the terminal: 
-#		"sudo chmod 777 install-script.sh"
-# (3) next, run this command: 
-#		"./install-script.sh"
-# (4) monitor the terminal window, it will ask you to press enter at some point.
-# (5) when the script completes, you should be able to use the software that was installed.
+YOUR_OS="$(cat /etc/issue | awk {'print $1'})"
 
+if [ "$YOUR_OS" == Ubuntu ]; then
+    echo "[OS Check] = Ubuntu"
+	echo "Starting the script..."
+else
+	echo "Error -- this script is designed for Ubuntu. You are not running Ubuntu."
+	echo "Exiting..."
+	exit
 
+fi
 
-
-# Add repositories
+# Add repository
 sudo apt-add-repository ppa:obsproject/obs-studio
 
 # Update list of available software
@@ -27,7 +31,7 @@ sudo apt-get install vlc python-wxtools python-pip python3-tk youtube-dl -y
 
 pip install twodict
 
-cd /home/"${scriptuser}"/Downloads/
+cd /home/"$USER"/Downloads/
 
 wget https://go.skype.com/skypeforlinux-64.deb
 sudo dpkg -i skypeforlinux-64.deb
@@ -45,27 +49,28 @@ Type=Application
 Icon=transmission
 Categories=GTK;GNOME;Utility;
 EOL
-cd /home/"${scriptuser}"/.config/
+cd /home/"$USER"/.config/
 sudo chmod 777 youtube-dlg/
 cd youtube-dlg
 sudo chmod 777 *
 
-cd /home/"${scriptuser}"/Downloads/
+cd /home/"$USER"/Downloads/
 wget "http://download.virtualbox.org/virtualbox/5.2.0/virtualbox-5.2_5.2.0-118431~Ubuntu~zesty_amd64.deb"
 sudo chmod 777 virtualbox-5.2_5.2.0-118431~Ubuntu~zesty_amd64.deb
 
 
 sudo apt-get install ffmpeg -y
 sudo apt-get install inkscape git gimp p7zip-full geany deluge chromium-browser mumble krita obs-studio gnome-tweak-tool ibus-sunpinyin ibus-pinyin steam -y
-sudo snap install atom --classic 
 ibus restart
-
+sudo apt-get install gconf2 gconf-service python gconf-service-backend libgconf-2-4 liberror-perl git-man python-minimal python2.7 libpython-stdlib -y
+wget https://github.com/atom/atom/releases/download/v1.22.1/atom-amd64.deb
+sudo dpkg -i atom-amd64.deb
 
 sudo apt-get --fix-broken install
 sudo apt-get autoremove
 sudo apt-get autoclean
 
-cd /home/"${scriptuser}"/.steam/
+cd /home/"$USER"/.steam/
 wget "https://github.com/Laz88/install-script/raw/master/skins.zip"
 7z x skins.zip
 
@@ -78,33 +83,33 @@ sudo apt-get autoremove
 sudo apt-get autoclean
 
 
-cd /home/"${scriptuser}"/Pictures/
+cd /home/"$USER"/Pictures/
 wget "https://raw.githubusercontent.com/Laz88/install-script/master/Wallpapers/mbuntu-0.jpg"
 wget "https://raw.githubusercontent.com/Laz88/install-script/master/Wallpapers/00img102.jpg"
-gsettings set org.gnome.desktop.background picture-uri "/home/${scriptuser}/Pictures/mbuntu-0.jpg"
+gsettings set org.gnome.desktop.background picture-uri "/home/"$USER"/Pictures/mbuntu-0.jpg"
 
-cd /home/${scriptuser}/Downloads
+cd /home/"$USER"/Downloads
 wget "https://dl.opendesktop.org/api/files/download/id/1498225522/ocs-url_3.0.2-0ubuntu1_amd64.deb"
 wget "https://dl.opendesktop.org/api/files/download/id/1506729421/ocsstore_2.2.1-0ubuntu1_amd64.deb"
 sudo apt install libqt5svg5 qml-module-qtquick-controls
-sudo dpkg -i /home/${scriptuser}/Downloads/ocs-url*.deb
-sudo dpkg -i /home/${scriptuser}/Downloads/ocsstore*.deb
+sudo dpkg -i /home/"$USER"/Downloads/ocs-url*.deb
+sudo dpkg -i /home/"$USER"/Downloads/ocsstore*.deb
 sudo apt-get --fix-broken install
 sudo apt-get autoremove
 sudo apt-get autoclean
 
 
 # Make Scripts
-mkdir /home/"${scriptuser}"/scripts
-cd /home/"${scriptuser}"/scripts/
-sudo cat > /home/"${scriptuser}"/scripts/144hz-displayport-2.sh << EOL
+mkdir /home/"$USER"/scripts
+cd /home/"$USER"/scripts/
+sudo cat > /home/"$USER"/scripts/144hz-displayport-2.sh << EOL
 #!/bin/bash
 xrandr --output DisplayPort-2 --mode 1920x1080 --rate 144.00
 EOL
 sudo chmod 777 144hz-displayport-2.sh
 sudo chmod +x 144hz-displayport-2.sh
 
-sudo cat > /home/"${scriptuser}"/scripts/backup.sh << EOL
+sudo cat > /home/"$USER"/scripts/backup.sh << EOL
 #!/bin/bash
 echo "This assumes you have a mounted backup drive at /media/$USER/TB/"
 echo "This script can backup or restore files."
@@ -146,4 +151,3 @@ Type=Application
 Icon=/usr/share/ibus-table/icons/chinese.svg
 Categories=GTK;GNOME;Utility;
 EOL
-
