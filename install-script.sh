@@ -44,6 +44,8 @@ sudo apt install mumble -y -f
 
 sudo apt install chromium-browser -y -f
 
+sudo apt install firefox -y -f
+
 sudo cat > /home/"$USER"/Downloads/web-wechat.desktop << EOL
 [Desktop Entry]
 Name=WeChat
