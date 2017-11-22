@@ -19,7 +19,17 @@ elif [ "$YOUR_OS" == elementary ]; then
 	echo "Starting the script..."
 	# Install script pre-requisites
 	sudo apt update
-	sudo apt install software-properties-common firefox thunderbird nautilus -y -f
+	sudo apt install software-properties-common firefox thunderbird nautilus plasma-workspace -y -f	
+	sudo cat > /home/"$USER"/Downloads/systemmonitor.desktop << EOL
+	[Desktop Entry]
+	Name=System Monitor
+	Exec=systemmonitor
+	Terminal=false
+	Type=Application
+	Icon=onboard
+	Categories=GTK;Utility;
+	EOL
+	sudo mv /home/"$USER"/Downloads/systemmonitor.desktop /usr/share/applications/systemmonitor.desktop
 else
 	echo "[OS check] = Failed"
 	echo "Error -- this script is designed for Ubuntu and Elementary only."
