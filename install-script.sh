@@ -28,7 +28,7 @@ elif [ "$YOUR_OS" == elementary ]; then
 	Type=Application
 	Icon=onboard
 	Categories=GTK;Utility;
-	EOL
+EOL
 	sudo mv /home/"$USER"/Downloads/systemmonitor.desktop /usr/share/applications/systemmonitor.desktop
 else
 	echo "[OS check] = Failed"
