@@ -13,12 +13,13 @@ YOUR_OS="$(cat /etc/issue | awk {'print $1'})"
 if [ "$YOUR_OS" == Ubuntu ]; then
 	echo "[OS check] = Ubuntu"
 	echo "Starting the script..."
+	sudo apt update
 elif [ "$YOUR_OS" == elementary ]; then
 	echo "[OS check] = Elementary"
 	echo "Starting the script..."
 	# Install script pre-requisites
 	sudo apt update
-	sudo apt install software-properties-common -y -f
+	sudo apt install software-properties-common firefox thunderbird nautilus -y -f
 else
 	echo "[OS check] = Failed"
 	echo "Error -- this script is designed for Ubuntu and Elementary only."
@@ -26,8 +27,6 @@ else
 	exit
 fi
 
-# Update list of available software
-sudo apt update
 # All software downloads should go to /home/"$USER"/Downloads/
 cd /home/"$USER"/Downloads/
 
@@ -43,8 +42,6 @@ sudo rm skypeforlinux-64.deb
 sudo apt install mumble -y -f
 
 sudo apt install chromium-browser -y -f
-
-sudo apt install firefox -y -f
 
 sudo cat > /home/"$USER"/Downloads/web-wechat.desktop << EOL
 [Desktop Entry]
