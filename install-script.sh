@@ -28,7 +28,7 @@ fi
 
 # Update list of available software
 sudo apt update
-# All software downloads should go to /home/'$USER'/Downloads/
+# All software downloads should go to /home/"$USER"/Downloads/
 cd /home/"$USER"/Downloads/
 
 # Utilities
@@ -44,7 +44,7 @@ sudo apt install mumble -y -f
 
 sudo apt install chromium-browser -y -f
 
-sudo cat > /home/'$USER'/Downloads/web-wechat.desktop << EOL
+sudo cat > /home/"$USER"/Downloads/web-wechat.desktop << EOL
 [Desktop Entry]
 Name=WeChat
 Exec=chromium-browser https://web.wechat.com/
@@ -53,7 +53,7 @@ Type=Application
 Icon=/usr/share/ibus-table/icons/chinese.svg
 Categories=GTK;Utility;
 EOL
-sudo mv /home/'$USER'/Downloads/web-wechat.desktop /usr/share/applications/web-wechat.desktop
+sudo mv /home/"$USER"/Downloads/web-wechat.desktop /usr/share/applications/web-wechat.desktop
 
 sudo apt install ibus-pinyin ibus-sunpinyin -y -f
 
@@ -93,7 +93,7 @@ Name=Youtube-DL-GUI
 Exec=youtube-dl-gui
 Terminal=false
 Type=Application
-Icon=transmission
+Icon=multimedia-video-player
 Categories=GTK;Utility;
 EOL
 sudo mv /home/"$USER"/Downloads/youtube-dl-gui.desktop /usr/share/applications/youtube-dl-gui.desktop
@@ -104,28 +104,25 @@ sudo apt install git -y -f
 sudo apt install geany -y -f
 
 wget https://github.com/atom/atom/releases/download/v1.22.1/atom-amd64.deb
-sudo apt install -f -y /home/'$USER'/Downloads/atom-amd64.deb
+sudo apt install -f -y /home/"$USER"/Downloads/atom-amd64.deb
+sudo rm /home/"$USER"/Downloads/atom-amd64.deb
 
 if [ "$YOUR_OS" == Ubuntu ]; then
 	wget "http://download.virtualbox.org/virtualbox/5.2.0/virtualbox-5.2_5.2.0-118431~Ubuntu~zesty_amd64.deb"
 	sudo chmod 777 virtualbox-5.2_5.2.0-118431~Ubuntu~zesty_amd64.deb
 	sudo apt install /home/"$USER"/Downloads/virtualbox-5.2_5.2.0-118431~Ubuntu~zesty_amd64.deb -f
-	sudo rm virtualbox-5.2_5.2.0-118431~Ubuntu~zesty_amd64.deb
+	sudo rm /home/"$USER"/Downloads/virtualbox-5.2_5.2.0-118431~Ubuntu~zesty_amd64.deb
 elif [ "$YOUR_OS" == elementary ]; then
 	wget "http://download.virtualbox.org/virtualbox/5.2.0/virtualbox-5.2_5.2.0-118431~Ubuntu~xenial_amd64.deb"
 	sudo chmod 777 virtualbox-5.2_5.2.0-118431~Ubuntu~xenial_amd64.deb
 	sudo apt install /home/"$USER"/Downloads/virtualbox-5.2_5.2.0-118431~Ubuntu~xenial_amd64.deb -f
-	sudo rm virtualbox-5.2_5.2.0-118431~Ubuntu~xenial_amd64.deb
+	sudo rm /home/"$USER"/Downloads/virtualbox-5.2_5.2.0-118431~Ubuntu~xenial_amd64.deb
 else
 	echo ""
 fi
 
 # Videogames
 sudo apt install steam -y -f
-cd /home/"$USER"/.steam/
-wget "https://github.com/Laz88/install-script/raw/master/skins.zip"
-7z x skins.zip
-cd /home/"$USER"/Downloads
 
 # GNOME and THEME related
 sudo apt install gnome-session gnome-tweak-tool chrome-gnome-shell -y -f
@@ -140,7 +137,9 @@ cd /home/"$USER"/Downloads
 wget "https://dl.opendesktop.org/api/files/download/id/1498225522/ocs-url_3.0.2-0ubuntu1_amd64.deb"
 wget "https://dl.opendesktop.org/api/files/download/id/1506729421/ocsstore_2.2.1-0ubuntu1_amd64.deb"
 sudo apt install -f -y /home/"$USER"/Downloads/ocs-url*.deb
+sudo rm /home/"$USER"/Downloads/ocs-url*.deb
 sudo apt install -f -y /home/"$USER"/Downloads/ocsstore*.deb
+sudo rm /home/"$USER"/Downloads/ocsstore*.deb
 
 # Make Scripts
 mkdir /home/"$USER"/.scripts
@@ -187,5 +186,3 @@ cd /home/"$USER"/Downloads
 sudo apt --fix-broken install
 sudo apt autoremove
 sudo apt autoclean
-sudo apt update
-sudo apt upgrade
