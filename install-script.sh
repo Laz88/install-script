@@ -56,6 +56,9 @@ sudo mv /home/"$USER"/Downloads/web-wechat.desktop /usr/share/applications/web-w
 
 sudo apt install ibus-pinyin ibus-sunpinyin -y -f
 
+sudo apt install fcitx fcitx-googlepinyin fcitx-table-wbpy fcitx-pinyin fcitx-sunpinyin -y -f
+# requires you visit im-config and select the fcitx input as default.
+
 # Productivity software: Image media tools
 sudo apt install gimp -y -f
 
