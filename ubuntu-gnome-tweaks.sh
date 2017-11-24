@@ -20,7 +20,7 @@ sudo rm /home/"$USER"/Downloads/ocsstore*.deb
 ######################################
 #Theme Configs
 ######################################
-gsettings set org.gnome.desktop.interface cursor-theme "DBZ-Black"
+gsettings set org.gnome.desktop.interface cursor-theme "DMZ-Black"
 gsettings set org.gnome.desktop.interface icon-theme "Adwaita"
 gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
 gsettings set org.gnome.desktop.background picture-uri "/usr/share/backgrounds/Aardvark_Wallpaper_Grey_4096x2304.png"
