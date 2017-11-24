@@ -4,7 +4,7 @@
 #Enable Gnome extensions and tweaks
 ######################################
 sudo apt update
-sudo apt install gnome-shell chrome-gnome-shell gnome-tweak-tool -f -y
+sudo apt install gnome-session gnome-shell chrome-gnome-shell gnome-tweak-tool -f -y
 
 ######################################
 #Boot pre-splash color
