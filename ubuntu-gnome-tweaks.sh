@@ -7,6 +7,29 @@ sudo apt update
 sudo apt install gnome-session gnome-shell chrome-gnome-shell gnome-tweak-tool -f -y
 
 ######################################
+#Proprietary theme software
+######################################
+cd /home/"$USER"/Downloads
+wget "https://dl.opendesktop.org/api/files/download/id/1498225522/ocs-url_3.0.2-0ubuntu1_amd64.deb"
+wget "https://dl.opendesktop.org/api/files/download/id/1506729421/ocsstore_2.2.1-0ubuntu1_amd64.deb"
+sudo apt install -f -y /home/"$USER"/Downloads/ocs-url*.deb
+sudo rm /home/"$USER"/Downloads/ocs-url*.deb
+sudo apt install -f -y /home/"$USER"/Downloads/ocsstore*.deb
+sudo rm /home/"$USER"/Downloads/ocsstore*.deb
+
+######################################
+#Theme Configs
+######################################
+gsettings set org.gnome.desktop.interface cursor-theme "DBZ-Black"
+gsettings set org.gnome.desktop.interface icon-theme "Adwaita"
+gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
+gsettings set org.gnome.desktop.background picture-uri "/usr/share/backgrounds/Aardvark_Wallpaper_Grey_4096x2304.png"
+sudo gsettings set org.gnome.desktop.interface cursor-theme "DBZ-Black"
+sudo gsettings set org.gnome.desktop.interface icon-theme "Adwaita"
+sudo gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
+sudo gsettings set org.gnome.desktop.background picture-uri "/usr/share/backgrounds/Aardvark_Wallpaper_Grey_4096x2304.png"
+
+######################################
 #Boot pre-splash color
 ######################################
 #You can manually do this with using these commands:
@@ -36,25 +59,17 @@ sudo mv /home/"$USER"/Downloads/ubuntu-logo.script /usr/share/plymouth/themes/ub
 sudo update-initramfs -u
 
 ######################################
-#Login and Lock screen
-######################################
-# You can manually do this for the login screen but not the lock screen
-# sudo update-alternatives --config gdm3.css #select option 1
-sudo mv /usr/share/gnome-shell/theme/ubuntu.css ubuntu-backup.backup
-sudo cp /usr/share/gnome-shell/theme/gnome-shell.css /usr/share/gnome-shell/theme/ubuntu.css
-
-######################################
 #Wallpapers
 ######################################
 cd /home/"$USER"/Pictures/
-wget "https://raw.githubusercontent.com/Laz88/install-script/master/Wallpapers/mbuntu-0.jpg"
-sudo convert /home/"$USER"/Pictures/mbuntu-0.jpg /home/"$USER"/Pictures/warty-final-ubuntu.png
-sudo rm /home/"$USER"/Pictures/mbuntu-0.jpg
+wget "https://raw.githubusercontent.com/Laz88/install-script/master/Wallpapers/00img102.jpg"
+sudo convert /home/"$USER"/Pictures/00img102.jpg /home/"$USER"/Pictures/warty-final-ubuntu.png
+sudo rm /home/"$USER"/Pictures/00img102.jpg
 sudo mv /home/"$USER"/Pictures/warty-final-ubuntu.png /usr/share/backgrounds/warty-final-ubuntu.png
 
-wget "https://raw.githubusercontent.com/Laz88/install-script/master/Wallpapers/00img102.jpg"
-sudo convert /home/"$USER"/Pictures/00img102.jpg /home/"$USER"/Pictures/Aardvark_Wallpaper_Grey_4096x2304.png
-sudo rm /home/"$USER"/Pictures/00img102.jpg
+wget "https://raw.githubusercontent.com/Laz88/install-script/master/Wallpapers/mbuntu-0.jpg"
+sudo convert /home/"$USER"/Pictures/mbuntu-0.jpg /home/"$USER"/Pictures/Aardvark_Wallpaper_Grey_4096x2304.png
+sudo rm /home/"$USER"/Pictures/mbuntu-0.jpg
 sudo mv /home/"$USER"/Pictures/Aardvark_Wallpaper_Grey_4096x2304.png /usr/share/backgrounds/Aardvark_Wallpaper_Grey_4096x2304.png
 
 wget "https://raw.githubusercontent.com/Laz88/install-script/master/Wallpapers/Aurora.jpg"
@@ -65,14 +80,14 @@ sudo mv /home/"$USER"/Pictures/img22.jpg /usr/share/backgrounds/Bloom_by_Victor_
 
 wget "https://raw.githubusercontent.com/Laz88/install-script/master/Wallpapers/img4.jpg"
 sudo mv /home/"$USER"/Pictures/img4.jpg /usr/share/backgrounds/Red_delight_by_Rishikesh_Gawade.jpg
-
 ######################################
-#Proprietary theme software
+#Login and Lock screen
 ######################################
-cd /home/"$USER"/Downloads
-wget "https://dl.opendesktop.org/api/files/download/id/1498225522/ocs-url_3.0.2-0ubuntu1_amd64.deb"
-wget "https://dl.opendesktop.org/api/files/download/id/1506729421/ocsstore_2.2.1-0ubuntu1_amd64.deb"
-sudo apt install -f -y /home/"$USER"/Downloads/ocs-url*.deb
-sudo rm /home/"$USER"/Downloads/ocs-url*.deb
-sudo apt install -f -y /home/"$USER"/Downloads/ocsstore*.deb
-sudo rm /home/"$USER"/Downloads/ocsstore*.deb
+clear
+echo "ATTENTION: SELECT OPTION 1, PRESS ENTER"
+echo "ATTENTION: SELECT OPTION 1, PRESS ENTER"
+echo "ATTENTION: SELECT OPTION 1, PRESS ENTER"
+# You can manually do this for the login screen but not the lock screen
+sudo update-alternatives --config gdm3.css #select option 1
+# sudo mv /usr/share/gnome-shell/theme/ubuntu.css ubuntu-backup.backup
+# sudo cp /usr/share/gnome-shell/theme/gnome-shell.css /usr/share/gnome-shell/theme/ubuntu.css
