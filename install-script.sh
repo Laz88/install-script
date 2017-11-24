@@ -14,12 +14,15 @@ if [ "$YOUR_OS" == Ubuntu ]; then
 	echo "[OS check] = Ubuntu"
 	echo "Starting the script..."
 	sudo apt update
+	sudo apt install ibus-pinyin ibus-sunpinyin -y -f
 elif [ "$YOUR_OS" == elementary ]; then
 	echo "[OS check] = Elementary"
 	echo "Starting the script..."
 	# Install script pre-requisites
 	sudo apt update
-	sudo apt install software-properties-common firefox thunderbird gnome-system-monitor libreoffice -y -f	
+	sudo apt install software-properties-common firefox thunderbird gnome-system-monitor libreoffice -y -f
+	sudo apt install fcitx fcitx-googlepinyin fcitx-table-wbpy fcitx-pinyin fcitx-sunpinyin -y -f
+	# requires you visit im-config and select the fcitx input as default.
 else
 	echo "[OS check] = Failed"
 	echo "Error -- this script is designed for Ubuntu and Elementary only."
@@ -53,11 +56,6 @@ Icon=/usr/share/ibus-table/icons/chinese.svg
 Categories=GTK;Utility;
 EOL
 sudo mv /home/"$USER"/Downloads/web-wechat.desktop /usr/share/applications/web-wechat.desktop
-
-sudo apt install ibus-pinyin ibus-sunpinyin -y -f
-
-sudo apt install fcitx fcitx-googlepinyin fcitx-table-wbpy fcitx-pinyin fcitx-sunpinyin -y -f
-# requires you visit im-config and select the fcitx input as default.
 
 # Productivity software: Image media tools
 sudo apt install gimp -y -f
