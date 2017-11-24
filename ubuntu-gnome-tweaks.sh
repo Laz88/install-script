@@ -30,7 +30,7 @@ sudo update-grub
 
 sudo cp /usr/share/plymouth/themes/ubuntu-logo/ubuntu-logo.script /home/"$USER"/Downloads/ubuntu-logo.script
 cd /home/"$USER"/Downloads/
-grep -r -l '0.16,0,0,0.12' . | sort | uniq | xargs perl -e "s/0.16,0,0,0.12/0.00,0,0,0.00/" -pi
+grep -r -l '0.16,0.00,0.12' . | sort | uniq | xargs perl -e "s/0.16,0.00,0.12/0.00,0.00,0.00/" -pi
 sudo rm /usr/share/plymouth/themes/ubuntu-logo/ubuntu-logo.script
 sudo mv /home/"$USER"/Downloads/ubuntu-logo.script /usr/share/plymouth/themes/ubuntu-logo/ubuntu-logo.script
 sudo update-initramfs -u
