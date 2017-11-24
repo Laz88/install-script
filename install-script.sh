@@ -126,19 +126,9 @@ sudo apt install steam -y -f
 
 # GNOME and THEME related
 if [ "$YOUR_OS" == Ubuntu ]; then
-	sudo apt install gnome-session gnome-tweak-tool chrome-gnome-shell -y -f
-	sudo apt install gnome-maps gnome-weather polari gnome-documents gnome-photos gnome-music -y -f
-	cd /home/"$USER"/Pictures/
-	wget "https://raw.githubusercontent.com/Laz88/install-script/master/Wallpapers/mbuntu-0.jpg"
-	wget "https://raw.githubusercontent.com/Laz88/install-script/master/Wallpapers/00img102.jpg"
-	gsettings set org.gnome.desktop.background picture-uri "/home/"$USER"/Pictures/mbuntu-0.jpg"
-	cd /home/"$USER"/Downloads
-	wget "https://dl.opendesktop.org/api/files/download/id/1498225522/ocs-url_3.0.2-0ubuntu1_amd64.deb"
-	wget "https://dl.opendesktop.org/api/files/download/id/1506729421/ocsstore_2.2.1-0ubuntu1_amd64.deb"
-	sudo apt install -f -y /home/"$USER"/Downloads/ocs-url*.deb
-	sudo rm /home/"$USER"/Downloads/ocs-url*.deb
-	sudo apt install -f -y /home/"$USER"/Downloads/ocsstore*.deb
-	sudo rm /home/"$USER"/Downloads/ocsstore*.deb
+	wget "https://raw.githubusercontent.com/Laz88/install-script/master/ubuntu-gnome-tweaks.sh"
+	chmod +x ubuntu-gnome-tweaks.sh
+	./ubuntu-gnome-tweaks.sh
 
 elif [ "$YOUR_OS" == elementary ]; then
 	echo "elementary"
