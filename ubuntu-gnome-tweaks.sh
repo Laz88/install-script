@@ -83,7 +83,11 @@ sudo mv /home/"$USER"/Pictures/img4.jpg /usr/share/backgrounds/Red_delight_by_Ri
 ######################################
 #Login and Lock screen
 ######################################
-clear
+cd /home/"$USER"/Downloads
+wget https://raw.githubusercontent.com/Laz88/install-script/master/ubuntu.css
+sudo mv /usr/share/gnome-shell/theme/ubuntu.css /usr/share/gnome-shell/theme/ubuntu.css.backup
+sudo mv /home/"$USER"/Downloads/ubuntu.css /usr/share/gnome-shell/theme/ubuntu.css
+
 echo "ATTENTION: SELECT OPTION 1, PRESS ENTER"
 echo "ATTENTION: SELECT OPTION 1, PRESS ENTER"
 echo "ATTENTION: SELECT OPTION 1, PRESS ENTER"
