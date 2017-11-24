@@ -30,7 +30,7 @@ sudo update-grub
 
 sudo cp /usr/share/plymouth/themes/ubuntu-logo/ubuntu-logo.script /home/"$USER"/Downloads/ubuntu-logo.script
 cd /home/"$USER"/Downloads/
-grep -r -l '0.16,0.00,0.12' . | sort | uniq | xargs perl -e "s/0.16,0.00,0.12/0.00,0.00,0.00/" -pi
+grep -r -l '0.16, 0.00, 0.12' . | sort | uniq | xargs perl -e "s/0.16, 0.00, 0.12/0.00,0.00,0.00/" -pi
 sudo rm /usr/share/plymouth/themes/ubuntu-logo/ubuntu-logo.script
 sudo mv /home/"$USER"/Downloads/ubuntu-logo.script /usr/share/plymouth/themes/ubuntu-logo/ubuntu-logo.script
 sudo update-initramfs -u
@@ -58,21 +58,21 @@ sudo rm /home/"$USER"/Pictures/00img102.jpg
 sudo mv /home/"$USER"/Pictures/Aardvark_Wallpaper_Grey_4096x2304.png /usr/share/backgrounds/Aardvark_Wallpaper_Grey_4096x2304.png
 
 wget "https://raw.githubusercontent.com/Laz88/install-script/master/Wallpapers/Aurora.jpg"
-sudo mv /home/"$USER"/Pictures/Aurora.jpg /home/"$USER"/Pictures/Bee_on_lavendar_by_Martin.jpg
+sudo mv /home/"$USER"/Pictures/Aurora.jpg /usr/share/backgrounds/Bee_on_lavendar_by_Martin.jpg
 
 wget "https://raw.githubusercontent.com/Laz88/install-script/master/Wallpapers/img22.jpg"
-sudo mv /home/"$USER"/Pictures/img22.jpg /home/"$USER"/Bloom_by_Victor_Madru.jpg
+sudo mv /home/"$USER"/Pictures/img22.jpg /usr/share/backgrounds/Bloom_by_Victor_Madru.jpg
 
 wget "https://raw.githubusercontent.com/Laz88/install-script/master/Wallpapers/img4.jpg"
-sudo mv /home/"$USER"/Pictures/img4.jpg /home/"$USER"/Pictures/Red_delight_by_Rishikesh_Gawade.jpg
+sudo mv /home/"$USER"/Pictures/img4.jpg /usr/share/backgrounds/Red_delight_by_Rishikesh_Gawade.jpg
 
 ######################################
 #Proprietary theme software
 ######################################
-# cd /home/"$USER"/Downloads
-# wget "https://dl.opendesktop.org/api/files/download/id/1498225522/ocs-url_3.0.2-0ubuntu1_amd64.deb"
-# wget "https://dl.opendesktop.org/api/files/download/id/1506729421/ocsstore_2.2.1-0ubuntu1_amd64.deb"
-# sudo apt install -f -y /home/"$USER"/Downloads/ocs-url*.deb
-# sudo rm /home/"$USER"/Downloads/ocs-url*.deb
-# sudo apt install -f -y /home/"$USER"/Downloads/ocsstore*.deb
-# sudo rm /home/"$USER"/Downloads/ocsstore*.deb
+cd /home/"$USER"/Downloads
+wget "https://dl.opendesktop.org/api/files/download/id/1498225522/ocs-url_3.0.2-0ubuntu1_amd64.deb"
+wget "https://dl.opendesktop.org/api/files/download/id/1506729421/ocsstore_2.2.1-0ubuntu1_amd64.deb"
+sudo apt install -f -y /home/"$USER"/Downloads/ocs-url*.deb
+sudo rm /home/"$USER"/Downloads/ocs-url*.deb
+sudo apt install -f -y /home/"$USER"/Downloads/ocsstore*.deb
+sudo rm /home/"$USER"/Downloads/ocsstore*.deb
