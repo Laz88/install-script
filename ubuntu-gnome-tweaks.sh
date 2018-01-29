@@ -21,12 +21,12 @@ sudo rm /home/"$USER"/Downloads/ocsstore*.deb
 #Theme Configs
 ######################################
 gsettings set org.gnome.desktop.interface cursor-theme "DMZ-Black"
-gsettings set org.gnome.desktop.interface icon-theme "Adwaita"
-gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
+# gsettings set org.gnome.desktop.interface icon-theme "Adwaita"
+# gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
 gsettings set org.gnome.desktop.background picture-uri "/usr/share/backgrounds/Aardvark_Wallpaper_Grey_4096x2304.png"
 sudo gsettings set org.gnome.desktop.interface cursor-theme "DBZ-Black"
-sudo gsettings set org.gnome.desktop.interface icon-theme "Adwaita"
-sudo gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
+# sudo gsettings set org.gnome.desktop.interface icon-theme "Adwaita"
+# sudo gsettings set org.gnome.desktop.interface gtk-theme "Adwaita"
 sudo gsettings set org.gnome.desktop.background picture-uri "/usr/share/backgrounds/Aardvark_Wallpaper_Grey_4096x2304.png"
 
 ######################################
@@ -88,6 +88,12 @@ wget https://raw.githubusercontent.com/Laz88/install-script/master/ubuntu.css
 sudo mv /usr/share/gnome-shell/theme/ubuntu.css /usr/share/gnome-shell/theme/ubuntu.css.backup
 sudo mv /home/"$USER"/Downloads/ubuntu.css /usr/share/gnome-shell/theme/ubuntu.css
 
+echo "ATTENTION: SELECT OPTION 1, PRESS ENTER"
+echo "ATTENTION: SELECT OPTION 1, PRESS ENTER"
+echo "ATTENTION: SELECT OPTION 1, PRESS ENTER"
+echo "ATTENTION: SELECT OPTION 1, PRESS ENTER"
+echo "ATTENTION: SELECT OPTION 1, PRESS ENTER"
+echo "ATTENTION: SELECT OPTION 1, PRESS ENTER"
 echo "ATTENTION: SELECT OPTION 1, PRESS ENTER"
 echo "ATTENTION: SELECT OPTION 1, PRESS ENTER"
 echo "ATTENTION: SELECT OPTION 1, PRESS ENTER"
