@@ -72,6 +72,8 @@ sudo apt install inkscape -y -f
 # Productivity software: Video media tools
 sudo apt install ffmpeg -y -f
 
+sudo apt install audacity -y -f
+
 sudo apt install vlc livestreamer -y -f
 
 sudo apt-add-repository ppa:obsproject/obs-studio
