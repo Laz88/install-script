@@ -57,6 +57,11 @@ Categories=GTK;Utility;
 EOL
 sudo mv /home/"$USER"/Downloads/web-wechat.desktop /usr/share/applications/web-wechat.desktop
 
+sudo apt install curl -y -f
+sudo curl -O https://prerelease.keybase.io/keybase_amd64.deb
+sudo dpkg -i keybase_amd64.deb
+sudo apt-get install -f
+
 # Productivity software: Image media tools
 sudo apt install gimp -y -f
 
