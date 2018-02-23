@@ -152,35 +152,6 @@ EOL
 sudo chmod 777 144hz-displayport-2.sh
 sudo chmod +x 144hz-displayport-2.sh
 
-sudo cat > /home/"$USER"/.scripts/backup.sh << EOL
-#!/bin/bash
-echo "This assumes you have a mounted backup drive at /media/$USER/TB/"
-echo "This script can backup or restore files."
-echo "		Type backup to back files up."
-echo "		Type restore to restore files."
-read SITUATION
-if [ "$SITUATION" == backup ]; then
-	mkdir /media/$USER/TB/backup
-	cp -r /home/$USER/.config /media/$USER/TB/backup
-	cp -r /home/$USER/.thunderbird /media/$USER/TB/backup
-	cp -r /home/$USER/.mozilla /media/$USER/TB/backup
-	cp -r /home/$USER/.steam /media/$USER/TB/backup
-	cp -r /home/$USER/Documents /media/$USER/TB/backup
-	cp -r /home/$USER/Downloads /media/$USER/TB/backup
-elif [ "$SITUATION" == restore ]; then
-	# cp -r /media/$USER/TB/backup/.config /home/$USER
-	cp -r /media/$USER/TB/backup/.thunderbird /home/$USER
-	# cp -r /media/$USER/TB/backup.mozilla /home/$USER
-	cp -r /media/$USER/TB/backup/.steam /home/$USER
-	cp -r /media/$USER/TB/backup/Documents /home/$USER
-	cp -r /media/$USER/TB/backup/Downloads /home/$USER
-else
-	echo "$USER did not specify a correct command."
-fi
-EOL
-sudo chmod 777 backup.sh
-sudo chmod +x backup.sh
-
 cd /home/"$USER"/Downloads
 
 # Cleanup and Maintain
