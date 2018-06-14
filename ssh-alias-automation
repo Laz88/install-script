@@ -1,0 +1,15 @@
+#!/bin/bash
+
+
+cat > ~/(NAME)-server-key.pem << EOL
+-----BEGIN RSA PRIVATE KEY-----
+(INSERT KEY HERE)
+-----END RSA PRIVATE KEY-----
+EOL
+
+chmod 400 ~/(NAME)-server-key.pem
+
+echo "alias (NAME)-server='ssh -i "~/(NAME)-server-key.pem" ubuntu@192.168.1.1'" >> ~/.bash_aliases && source ~/.bash_aliases
+
+
+echo "To connect to (NAME)-server, type (NAME)-server..."
