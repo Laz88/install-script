@@ -1,0 +1,17 @@
+#pre-requisites: security group ports open to YOU: SSH 22
+#pre-requisites: Server is running Ubuntu or some Linux varient
+#pre-requisites: Elastic IP address assigned
+#pre-requisites: You have the SSH key to the server on your computer
+
+#connecting to the server should be possible with:
+
+ssh -i "(server-key.pem)" ubuntu@(elastic-ip-address-of-server)
+
+
+#On a computer you will want to run these commands to connect to the Server
+
+ssh-add (server-key.pem)
+
+nautilus sftp://ubuntu@(elastic-ip-address-of-server)
+
+# Within the file browser nautilus, you'll now be able to interact with the file system
