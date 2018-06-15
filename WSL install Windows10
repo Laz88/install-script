@@ -1,0 +1,9 @@
+1. Open PowerShell as Administrator and run:
+
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+
+2. Restart your computer when prompted.
+
+3. In Window's Store, install Ubuntu (this only works after restart)
+
+4. Done
