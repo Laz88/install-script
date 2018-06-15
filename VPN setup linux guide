@@ -1,0 +1,57 @@
+This is not a script, this is just a guide.
+
+#pre-requisites: security group ports open to anywhere: UDP 1194
+#pre-requisites: security group ports open to anywhere: TCP 943
+#pre-requisites: security group ports open to anywhere: TCP 443
+#pre-requisites: security group ports open to JUST-ME: SSH 22
+
+#pre-requisites: Elastic IP address assigned
+
+#pre-requisites: In [Instances] right click on the [Instance], goto [Networking], goto [Change Source/Dest. Check], select the option required to [Disable].
+
+#connect to the server with: ssh -i "(vpn-server-key.pem)" ubuntu@ubuntu@(elastic-ip-address-of-server)
+
+sudo apt update
+sudo apt upgrade
+cd ~
+git clone https://github.com/redgeoff/openvpn-server-vagrant
+cd openvpn-server-vagrant
+cp config-default.sh config.sh
+
+#nano ~/openvpn-server-vagrant/config.sh
+#change PUBLIC_IP="" to the server elastic IP
+
+sudo su
+
+#we now run these commands as root
+#/home/ubuntu/openvpn-server-vagrant/ubuntu.sh
+./ubuntu.sh
+
+#/home/ubuntu/openvpn-server-vagrant/openvpn.sh
+./openvpn.sh
+
+#add these lines to server.conf
+echo 'push "route 172.31.0.0 255.255.0.0"' >> /etc/openvpn/server.conf
+echo 'push "redirect-gateway def1 bypass-dhcp"' >> /etc/openvpn/server.conf
+echo 'push "dhcp-option DNS 208.67.222.222"' >> /etc/openvpn/server.conf
+echo 'push "dhcp-option DNS 208.67.220.220"' >> /etc/openvpn/server.conf
+
+systemctl restart openvpn@server
+
+#Now we add clients to the server
+/home/ubuntu/openvpn-server-vagrant/add-client.sh client1
+
+/home/ubuntu/openvpn-server-vagrant/add-client.sh client2
+
+/home/ubuntu/openvpn-server-vagrant/add-client.sh client3
+
+/home/ubuntu/openvpn-server-vagrant/add-client.sh client4
+
+#Now we copy these client keys to the home folder so that they can be downloaded and distributed
+cp ~/client-configs/files/*.ovpn /home/ubuntu
+
+#On a computer you will want to run these commands to connect to the VPN Server
+# ssh-add (vpn-server-key.pem)
+# nautilus sftp://ubuntu@(elastic-ip-address-of-server)
+
+# Within the file browser nautilus, you'll now want to navigate to /home/ubuntu/ and download the client keys which are saved as *.ovpn
